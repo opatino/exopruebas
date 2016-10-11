@@ -73,6 +73,7 @@ public final class MimeTypes {
   public static final String APPLICATION_RAWCC = BASE_TYPE_APPLICATION + "/x-rawcc";
   public static final String APPLICATION_VOBSUB = BASE_TYPE_APPLICATION + "/vobsub";
   public static final String APPLICATION_PGS = BASE_TYPE_APPLICATION + "/pgs";
+  public static final String APPLICATION_DVBSUBS = BASE_TYPE_APPLICATION + "/dvbsubs";
 
   private MimeTypes() {}
 
@@ -213,7 +214,7 @@ public final class MimeTypes {
         || APPLICATION_SUBRIP.equals(mimeType) || APPLICATION_TTML.equals(mimeType)
         || APPLICATION_TX3G.equals(mimeType) || APPLICATION_MP4VTT.equals(mimeType)
         || APPLICATION_RAWCC.equals(mimeType) || APPLICATION_VOBSUB.equals(mimeType)
-        || APPLICATION_PGS.equals(mimeType)) {
+        || APPLICATION_PGS.equals(mimeType) || APPLICATION_DVBSUBS.equals(mimeType)) {
       return C.TRACK_TYPE_TEXT;
     } else if (APPLICATION_ID3.equals(mimeType)) {
       return C.TRACK_TYPE_METADATA;

@@ -22,6 +22,7 @@ import com.google.android.exoplayer2.text.ttml.TtmlDecoder;
 import com.google.android.exoplayer2.text.tx3g.Tx3gDecoder;
 import com.google.android.exoplayer2.text.webvtt.Mp4WebvttDecoder;
 import com.google.android.exoplayer2.text.webvtt.WebvttDecoder;
+import com.google.android.exoplayer2.text.dvbsubs.DvbSubsDecoder;
 import com.google.android.exoplayer2.util.MimeTypes;
 
 /**
@@ -58,6 +59,7 @@ public interface SubtitleDecoderFactory {
    * <li>SubRip ({@link SubripDecoder})</li>
    * <li>TX3G ({@link Tx3gDecoder})</li>
    * <li>Cea608 ({@link Cea608Decoder})</li>
+   * <li>DVB ({@link DvbSubsDecoder})</li>
    * </ul>
    */
   SubtitleDecoderFactory DEFAULT = new SubtitleDecoderFactory() {
@@ -95,6 +97,8 @@ public interface SubtitleDecoderFactory {
             return Class.forName("com.google.android.exoplayer2.text.tx3g.Tx3gDecoder");
           case MimeTypes.APPLICATION_CEA608:
             return Class.forName("com.google.android.exoplayer2.text.cea.Cea608Decoder");
+          case MimeTypes.APPLICATION_DVBSUBS:
+            return Class.forName("com.google.android.exoplayer2.text.dvbsubs.DvbSubsDecoder");
           default:
             return null;
         }
