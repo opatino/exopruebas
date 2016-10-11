@@ -102,6 +102,8 @@ public final class DefaultStreamReaderFactory implements ElementaryStreamReader.
         } else {
           return new Id3Reader(output.track(nextEmbeddedTrackId++));
         }
+      case TsExtractor.TS_STREAM_TYPE_DVBSUBS:
+        return new DvbSubtitlesReader(output.track(trackId), esInfo.language);
       default:
         return null;
     }

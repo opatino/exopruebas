@@ -15,6 +15,7 @@
  */
 package com.google.android.exoplayer2.text;
 
+import android.graphics.Bitmap;
 import android.support.annotation.IntDef;
 import android.text.Layout.Alignment;
 import java.lang.annotation.Retention;
@@ -138,6 +139,13 @@ public class Cue {
   public final float size;
 
   /**
+   * Graphical content
+   */
+  public final Bitmap bitmap;
+
+  public final boolean isGraphic;
+
+  /**
    * Constructs a cue whose {@link #textAlignment} is null, whose type parameters are set to
    * {@link #TYPE_UNSET} and whose dimension parameters are set to {@link #DIMEN_UNSET}.
    *
@@ -167,6 +175,24 @@ public class Cue {
     this.position = position;
     this.positionAnchor = positionAnchor;
     this.size = size;
+
+    this.bitmap = null;
+    this.isGraphic = false;
+  }
+
+  public Cue(Bitmap data) {
+
+    this.text = null;
+    this.textAlignment = null;
+    this.line = DIMEN_UNSET;
+    this.lineType = TYPE_UNSET;
+    this.lineAnchor = TYPE_UNSET;
+    this.position = DIMEN_UNSET;
+    this.positionAnchor = TYPE_UNSET;
+    this.size = DIMEN_UNSET;
+
+    this.bitmap = data;
+    this.isGraphic = true;
   }
 
 }
