@@ -54,6 +54,13 @@ public final class DefaultExtractorsFactory implements ExtractorsFactory {
         // reflection (see http://proguard.sourceforge.net/FAQ.html#forname).
         try {
           extractorClasses.add(
+                  Class.forName("com.google.android.exoplayer2.extractor.rtp.RtpExtractor")
+                          .asSubclass(Extractor.class));
+        } catch (ClassNotFoundException e) {
+          // Extractor not found.
+        }
+        try {
+          extractorClasses.add(
               Class.forName("com.google.android.exoplayer2.extractor.mkv.MatroskaExtractor")
                   .asSubclass(Extractor.class));
         } catch (ClassNotFoundException e) {
